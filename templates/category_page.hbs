@@ -1,0 +1,66 @@
+<section class="hero-unit container" style="background-image: url({{asset 'bluepatern_02-01.png'}});" data-hero-unit>
+  <div class="container-inner hero-unit__content" data-search-box>
+    <h1 class="hero-unit__title">{{category.name}}</h1> 
+    {{#if category.description}}
+    <p class="hero-unit__desc">{{category.description}}</p>
+    {{/if}}
+  </div>
+</section>
+
+<div class="container category-page" data-category-page>
+  <div class="container-inner">
+    <div class="row clearfix">
+      <div class="column column--sm-8 column--md-9">
+        {{#if sections}} 
+          <div class="section-tree">
+            {{#each sections}}
+              <section class="section" id="section-{{id}}">
+                <h3 class="section__title" data-section-title>
+                  {{#if internal}}
+                    <span class="fa fa-lock" title="{{t 'internal'}}"></span>
+                  {{/if}}
+                  <a class="section__title-link" href="{{url}}">{{name}}</a>
+                </h3>
+
+                {{#if articles}}
+                  <ul class="article-list article-list--section">
+                    {{#each articles}}
+                      <li class="article-list-item {{#if promoted}}article-list-item--is-promoted{{/if}}" >
+  {{#if promoted}}
+    <span class="fa fa-star" title="{{t 'promoted'}}"></span>
+  {{/if}}
+  <a class="article-list-item__link" href="{{url}}">{{title}}</a>
+</li>
+                    {{/each}}
+                  </ul>
+                  {{#if more_articles}}
+                    <a href="{{url}}" class="see-all-articles">
+                      {{t 'show_all_articles' count=article_count}}
+                    </a>
+                  {{/if}}
+                {{else}}
+                  <p>
+                    <i><a href="{{url}}">{{t 'empty'}}</a></i>
+                  </p>
+                {{/if}}
+              </section>
+            {{/each}}
+          </div>
+        {{else}}
+          <p><i><a href="{{category.url}}">{{t 'empty'}}</a></i></p>
+        {{/if}} 
+      </div>
+      {{#if sections}} 
+      <div class="column column--sm-4 column--md-3">
+        <ul class="section-list" data-section-list>
+        {{#each sections}}
+          <li class="section-list__item">
+            <a href="#section-{{id}}" class="section-list__link" data-section-list-link>{{name}}</a>
+          </li>
+        {{/each}}
+        </ul>
+      </div>
+      {{/if}}
+    </div>
+  </div>
+</div>

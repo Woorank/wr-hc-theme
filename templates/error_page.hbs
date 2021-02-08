@@ -1,0 +1,19 @@
+<section class="hero-unit container error-page">
+  <div class="container-inner hero-unit__content">
+    {{#is error 'not_found'}}
+        <h1 class="h1">{{t 'nonexistent_page'}}</h1>
+      {{/is}} 
+    <h1 class="hero-unit__title text-center">
+      {{#is error 'unauthorized'}}
+        <h1 class="h1">{{link 'sign_in'}}</h1>
+      {{/is}}
+
+      {{#is error 'forbidden'}}
+         <h1 class="h1">{{t 'not_authorized'}}</h1>
+      {{/is}}
+    </h1>
+    <img src="{{asset '4xx_1.svg'}}" width="30%" height="30%" />
+    <hr />
+    {{search class='search-box search-box--hero-unit' instant=true}}
+  </div>
+</section>

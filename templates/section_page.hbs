@@ -1,0 +1,46 @@
+<section class="hero-unit container" style="background-image: url({{asset 'bluepatern_02-01.png'}});" data-hero-unit>
+  <div class="container-inner hero-unit__content" data-search-box>
+    <div class="breadcrumbs-wrapper">
+      
+    </div>
+
+    <div class="hero-unit__section">
+      <div class="hero-unit__section-content">
+        <h1 class="hero-unit__title"> 
+          {{#if section.internal}}
+            <span class="fa fa-lock" title="{{t 'internal'}}"></span>
+          {{/if}}
+          {{section.name}}
+        </h1> 
+
+        {{#if section.description}}
+          <p class="hero-unit__desc">{{section.description}}</p>
+        {{/if}}
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+<div class="container section-page">
+  <div class="container-inner">
+    {{breadcrumbs}}
+    {{#if section.articles}}
+      <ul class="article-list">
+        {{#each section.articles}}
+          <li class="article-list-item {{#if promoted}}article-list-item--is-promoted{{/if}}" >
+  {{#if promoted}}
+    <span class="fa fa-star" title="{{t 'promoted'}}"></span>
+  {{/if}}
+  <a class="article-list-item__link" href="{{url}}">{{title}}</a>
+</li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <p><i><a href="{{section.url}}">{{t 'empty'}}</a></i></p>
+    {{/if}}
+
+    {{pagination}}
+  </div>
+</div>

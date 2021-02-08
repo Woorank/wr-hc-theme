@@ -1,0 +1,175 @@
+<section class="hero-unit container" style="background-image: url({{asset 'bluepatern_02-01.png'}});" data-hero-unit>
+  <div class="container-inner hero-unit__content" data-search-box>
+    <div class="breadcrumbs-wrapper">
+    
+    </div>
+    <h1 class="hero-unit__title">
+    {{#if article.internal}}
+      <span class="fa fa-lock" title="{{t 'internal'}}"> </span>
+    {{/if}} {{article.title}}
+    </h1>
+    <div class="article-meta">
+      <div class="article-meta__col article-meta__col--main">
+        <div class="entry-info ">
+            </div>
+          </div>
+          <div class="entry-info__content">
+            <div class="meta meta--hero-unit">{{date article.created_at}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="article-meta__col article-meta__col--button">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container article-page">
+  <div class="container-inner">    
+    <div class="article-page__container">
+      <article class="article clearfix" itemscope itemtype="http://schema.org/Article">
+  {{breadcrumbs}}
+        <div class="article__body markdown" itemprop="articleBody">
+          {{article.body}}
+        </div>
+
+        <div class="article__attachments">
+          {{#if attachments}}
+  <ul class="list-unstyled attachment-list">
+    {{#each attachments}}
+      <li class="attachment-list__item">
+        <span class="fa fa-paperclip attachment-list__icon"></span>
+        <a href="{{url}}" target="_blank">{{name}}</a>
+        <div class="meta">({{size}})</div>
+      </li>
+    {{/each}}
+  </ul>
+{{/if}}
+        </div>
+      </article>
+
+      {{#with article}}
+        <div class="article-votes article__wrapper">
+          <div class="article-votes__question">{{t 'was_this_article_helpful'}}</div>
+          <div class="article-votes__controls">
+            {{vote 'up' class='btn btn--default article-vote article-vote--up' selected_class='article-vote--voted' role='button'}}
+            {{vote 'down' class='btn btn--default article-vote article-vote--down' selected_class='article-vote--voted' role='button'}}
+          </div>
+         
+         
+        </div>
+      {{/with}}
+
+      {{!-- Article Comments --}}
+
+      <section class="comments comments--article" id="comments" itemscope itemtype="http://schema.org/UserComments">
+        <div class="comments__header">
+          
+
+          <div class="comment-sorter">
+            <div class="comment-sorter__col comment-sorter__col--main">
+              {{t 'comments_count' count=article.comment_count}}
+            </div>
+
+            {{#if comments}}
+            <div class="comment-sorter__col comment-sorter__col--filters">
+              <div class="dropdown">
+                <a class="dropdown-toggle">{{t 'sort_by'}}</a>
+                <span class="dropdown-menu dropdown-menu-end" role="menu">
+                  {{#each comment_sorters}}
+                    <a aria-selected="{{selected}}" href="{{url}}" role="menuitem">{{name}}</a>
+                  {{/each}}
+                </span>
+              </div>
+            </div>
+            {{/if}}
+          </div>
+        </div>
+
+        {{#if comments}}
+          <ul class="comments__list">
+            {{#each comments}}
+              <li class="comment" id="{{anchor}}">
+                <div class="comment__inner">
+                  <div class="comment__content">
+
+                    <div class="entry-info comment__header">
+                      
+                      </div>
+                      <div class="entry-info__content">
+                       
+                        
+                        <div class="meta">
+                          {{date created_at}}
+                          {{#if editor}}
+                            ({{t 'edited'}} {{date edited_at timeago=true}})
+                          {{/if}}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="comment__body markdown">
+                      {{body}}
+                    </div>
+
+                    {{#if pending}}
+                      <span class="status-label status-label--pending">{{t 'pending_approval'}}</span>
+                    {{/if}}
+
+                    {{#with ticket}}
+                      <a href="{{url}}" target="_zendesk_lotus" class="status-label status-label--with-ticket">
+                        {{t 'request'}}{{id}}
+                      </a>
+                    {{/with}}
+                  </div>
+
+                  <div class="comment__voting-and-actions">
+                    {{#unless official}}
+                      <div class="vote">
+                        {{vote 'up' class='fa fa-angle-up btn vote-control vote-control--up' role='button'}}
+                        <div class="vote-sum">
+                          {{vote 'sum'}}
+                        </div>
+                        {{vote 'down' class='fa fa-angle-down btn vote-control vote-control--down' role='button'}}
+                      </div>
+                    {{/unless}}
+                    <div class="comment__actions">
+                      {{actions}}
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {{/each}}
+          </ul>
+
+          {{pagination}}
+        {{/if}}
+
+       
+
+        {{#form 'comment' class='comment-form'}}
+          <div class="comment-form__avatar">
+            <div class="avatar avatar--comment">
+              {{user_avatar class='user-avatar user-avatar--default'}}
+            </div>
+          </div>
+          <div class="comment-form__body">
+            {{textarea 'body' rows='4'}}
+          </div>
+          <div class="comment-form__controls">
+            {{input type='submit'}}
+          </div>
+        {{/form}}
+      </section>
+
+      <div class="row clearfix article-page__related">
+        <div class="column column--sm-6">
+          {{recent_articles}}
+        </div>
+        <div class="column column--sm-6">
+          {{related_articles}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

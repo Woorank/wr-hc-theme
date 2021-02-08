@@ -1,0 +1,76 @@
+<section class="hero-unit hero-unit--large container" data-hero-unit="large">
+  <div class="container-inner hero-unit__content" data-search-box>
+    <div class="hero-unit__title text-center">
+       {{dc 'searchbar_title'}}
+    </div>
+    {{search class='search-box search-box--hero-unit' instant=true}}
+  </div>
+  <img class="can-we-help" src="{{asset 'can-we-help-primary-lighter.gif'}}"/>
+</section>
+
+<div class="custom-blocks container" id="custom-blocks">
+  <div class="container-inner">
+    <div class="row clearfix" >
+      {{#each categories}}
+        {{#if ../has_multiple_categories}}
+          {{#isnt id 200487082}}
+            {{#isnt id 200468061}}
+              <div class="column column--xs-12 column--sm-6 column--md-4 custom-block">
+                <a class="custom-block__link" href="{{url}}">
+                  <div class="custom-block__icon">
+                    {{#is id 200465381}}
+                    <img src="{{asset'woorank_help_icons_getting_started_varia_02.svg'}}" />
+                    {{/is}}
+                    {{#is id 360000015489}}
+                    	<img src="{{asset 'woorank_help_icons_working_with_woorank_varia_02.svg'}}" />
+                    {{/is}}
+                    {{#is id 360000004685}}
+                    	<img src="{{asset 'woorank_help_icons_my_woorank_account_varia_02.svg'}}" />
+                    {{/is}}
+                    {{#is id 360000005249}}
+                    	<img src="{{asset 'woorank_help_icons_troubleshooting_varia_02.svg'}}" />
+                    {{/is}}
+                    {{#is id 360000004665}}
+                    	<img src="{{asset 'woorank_help_icons_partnerships_and_integrations_02.svg'}}" />
+                    {{/is}}
+                    {{#is id 360000003729}}
+                    	<img src="{{asset'woorank_help_icons_woorank_experts_varia_02.svg'}}" />
+                    {{/is}}
+                  </div>
+                  <h3 class="custom-block__title">
+                    {{name}}
+                  </h3>
+                  {{#if description}}
+                    <p class="custom-block__desc">
+                      {{description}}
+                    </p>
+                  {{/if}}
+                  <p class="custom-block__buttons">
+                    <span class="btn btn--primary">{{t 'show_all_articles'}}</span>
+                  </p>
+                </a>
+              </div>
+            {{/isnt}}
+          {{/isnt}}
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="container-inner">
+    {{#if promoted_articles}}
+      <section class="promoted-articles" id="promoted-articles">
+        <h2 class="promoted-articles__title"><span class="fa fa-star promoted-articles__icon"></span> {{t 'promoted_articles'}}</h2>
+        <ul class="promoted-articles__articles">
+          {{#each promoted_articles}}
+            <li class="promoted-articles__item">
+              <a class="promoted-articles__link" href="{{url}}">{{title}}</a>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+  </div>
+</div>

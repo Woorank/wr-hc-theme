@@ -1,0 +1,31 @@
+<!-- add code here that should appear in the document head -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/algoliasearch.zendesk-hc/2/algoliasearch.zendesk-hc.min.css">
+<script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch.zendesk-hc/2/algoliasearch.zendesk-hc.min.js"></script>
+<script type="text/javascript">
+  algoliasearchZendeskHC({
+    applicationId: 'FGACMI8EEU',
+    apiKey: '4deacb1ad8d8478ce86cadb09328b8a7',
+    subdomain: 'woorank',
+    indexPrefix: 'zendesk_',
+    baseUrl: '/hc/',
+    poweredBy: true,
+    debug: false,
+    color: '#353b48',
+    highlightColor: '#428bca',
+    responsive: true,
+    autocomplete: {
+      enabled: true,
+      inputSelector: '#query',
+      hits: 5
+    },
+    instantsearch: {
+      enabled: true,
+      paginationSelector: '.pagination',
+      reuseAutocomplete: false,
+      hideAutocomplete: true,
+      selector: '.search-results',
+      tagsLimit: 15
+    }
+  });
+</script>

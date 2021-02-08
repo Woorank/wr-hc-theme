@@ -1,0 +1,25 @@
+<section class="hero-unit container" style="background-image: url({{asset 'Patern_Woorank_Blauw-01.jpg'}});">
+  <div class="container-inner hero-unit__content">
+    <h1 class="hero-unit__title text-center">{{t 'submit_a_request'}}</h1>
+  </div>
+</section>
+
+<div class="container new-request-page">
+  <div class="container-inner">
+    <div class="row clearfix">
+      <div class="column column--sm-8 column--sm-offset-2">
+        {{#if parent}}
+        <p>
+          <span class="follow-up-hint">
+            {{follow_up}}
+          </span>
+        </p>
+        {{/if}}
+
+        <div class="new-request-form">
+          {{request_form}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
