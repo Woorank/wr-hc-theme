@@ -583,16 +583,20 @@ input[type="submit"] {
 
 .btn--primary {
   color: #fff;
-  background-color: ##2286E6;
+  background-color: #2286E6;
   border-color: #2286E6;
 
 }
-  .btn--primary:hover, .btn--primary:focus, .btn--primary:active {
-    color: #e0e0e0;
-    background-color: #0c60a6;
-    border-color: #0c5b9c; }
-  .btn--primary:active {
-    background-image: none; }
+
+.btn--primary:hover, .btn--primary:focus, .btn--primary:active {
+  color: #e0e0e0;
+  background-color: #258DF2;
+  border-color:##258DF2;
+}
+
+.btn--primary:active {
+  background-image: none;
+}
 
 .login,
 .btn--topbar {
