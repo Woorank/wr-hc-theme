@@ -1319,7 +1319,8 @@ th {
   position: absolute;
   display: block;
   height: auto;
-  width: 100vw;
+  width: 100%;
+  left: 0;
   top: 0;
 }
 
