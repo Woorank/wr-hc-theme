@@ -583,8 +583,10 @@ input[type="submit"] {
 
 .btn--primary {
   color: #fff;
-  background-color: #428bca;
-  border-color: #428bca; }
+  background-color: ##2286E6;
+  border-color: #2286E6;
+
+}
   .btn--primary:hover, .btn--primary:focus, .btn--primary:active {
     color: #e0e0e0;
     background-color: #0c60a6;
@@ -1582,8 +1584,8 @@ th {
   -webkit-transition: all .3s ease;
           transition: all .3s ease; }
   .category-list-item__link:active, .category-list-item__link:focus, .category-list-item__link:hover {
-    border-color: #428bca;
-    background-color: #428bca;
+    border-color: #2286E6;
+    background-color: #2286E6;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.15);
     color: #fff;
     text-decoration: none; }
