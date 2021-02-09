@@ -1309,17 +1309,12 @@ th {
   color: #fff;
    }
 
-.can-we-help {
+.hero-bg {
   position: absolute;
   display: block;
-  height: 300px;
-  width: 320px;
-  top: 50%;
-  right: 0;
-  -wekbit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-    -webkit-transform: translate(0, -50%);
-    transform: translate(0, -50%);
+  height: auto;
+  width: 100vw;
+  top: 0;
 }
 
 .hero-unit__content {
