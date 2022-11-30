@@ -1,26 +1,10 @@
 <section class="hero-unit container" style="background-size: cover; background-image: url({{asset 'woorank-hc-wave-blue.svg'}});" data-hero-unit>
   <div class="container-inner hero-unit__content" data-search-box>
-    <div class="breadcrumbs-wrapper">
-    
-    </div>
     <h1 class="hero-unit__title">
-    {{#if article.internal}}
-      <span class="fa fa-lock" title="{{t 'internal'}}"> </span>
-    {{/if}} {{article.title}}
+      {{#if article.internal}}
+        <span class="fa fa-lock" title="{{t 'internal'}}"></span>
+      {{/if}} {{article.title}}
     </h1>
-    <div class="article-meta">
-      <div class="article-meta__col article-meta__col--main">
-        <div class="entry-info ">
-            </div>
-          </div>
-          <div class="entry-info__content">
-            <div class="meta meta--hero-unit">{{date article.created_at}}</div>
-          </div>
-        </div>
-      </div>
-      <div class="article-meta__col article-meta__col--button">
-      </div>
-    </div>
   </div>
 </section>
 
